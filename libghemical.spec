@@ -17,7 +17,7 @@ License:	GPL
 Group:		Sciences/Chemistry
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	f2c flex
-BuildRequires:	libSC7-devel mopac7-devel openbabel-devel blas-devel lapack-devel
+BuildRequires:	libSC-devel mopac7-devel openbabel-devel blas-devel lapack-devel
 
 %description
 Library and data files for the ghemical computation chemistry package.
