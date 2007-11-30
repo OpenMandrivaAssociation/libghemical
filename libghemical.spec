@@ -16,8 +16,8 @@ URL:		http://www.uku.fi/~thassine/ghemical/
 License:	GPL
 Group:		Sciences/Chemistry
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	f2c
-BuildRequires:	libSC-devel mopac7-devel openbabel-devel blas-devel lapack-devel
+BuildRequires:	f2c flex
+BuildRequires:	libSC7-devel mopac7-devel openbabel-devel blas-devel lapack-devel
 
 %description
 Library and data files for the ghemical computation chemistry package.
@@ -58,8 +58,9 @@ autoconf
 %configure2_5x	--enable-mopac7 \
 		--enable-mpqc \
 		--enable-openbabel 
+
 %make
-										
+								
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
