@@ -15,7 +15,6 @@ Source0:	http://www.uku.fi/~thassine/projects/download/%{name}-%{version}.tar.gz
 URL:		http://www.uku.fi/~thassine/ghemical/
 License:	GPL
 Group:		Sciences/Chemistry
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	f2c flex
 BuildRequires:	libSC-devel mopac7-devel openbabel-devel blas-devel lapack-devel
 
