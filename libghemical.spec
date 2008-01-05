@@ -5,7 +5,7 @@
 Name:		libghemical
 Summary:	Libraries for the Ghemical chemistry package
 Version:	2.10
-Release:	%mkrel 5
+Release:	%mkrel 6
 Source0:	http://www.uku.fi/~thassine/projects/download/%{name}-%{version}.tar.gz
 URL:		http://www.uku.fi/~thassine/ghemical/
 License:	GPL+
