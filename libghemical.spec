@@ -1,11 +1,11 @@
-%define	major		0
+%define	major		3
 %define	libname		%mklibname ghemical %major
 %define develname	%mklibname ghemical -d
 
 Name:		libghemical
 Summary:	Libraries for the Ghemical chemistry package
-Version:	2.10
-Release:	%mkrel 8
+Version:	2.96
+Release:	%mkrel 1
 Source0:	http://www.uku.fi/~thassine/projects/download/%{name}-%{version}.tar.gz
 URL:		http://www.uku.fi/~thassine/ghemical/
 License:	GPL+
@@ -31,6 +31,7 @@ Data files for the ghemical library.
 %package -n	%{libname}
 Summary:	Dynamic libraries from %{name}
 Group:		System/Libraries
+Provides: 	%{name} = %{version}-%{release}
 Requires:	%{name}-data = %{version}
 
 %description -n	%{libname}
@@ -39,7 +40,7 @@ Dynamic libraries from %{name}.
 %package -n	%{develname}
 Summary:	Header files and static libraries from %{name}
 Group:		Development/C
-Requires:	%{libname} >= %{version}
+Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	ghemical-devel = %{version}-%{release} 
 Obsoletes:	ghemical-devel
