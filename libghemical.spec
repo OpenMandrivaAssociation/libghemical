@@ -7,6 +7,7 @@ Summary:	Libraries for the Ghemical chemistry package
 Version:	2.96
 Release:	%mkrel 1
 Source0:	http://www.uku.fi/~thassine/projects/download/%{name}-%{version}.tar.gz
+Patch0:		libghemical-2.96-gcc43.patch
 URL:		http://www.uku.fi/~thassine/ghemical/
 License:	GPL+
 Group:		Sciences/Chemistry
@@ -50,7 +51,8 @@ Obsoletes:	%{mklibname ghemical 0 -d}
 Libraries and includes files for developing programs based on %{name}.
 
 %prep
-%setup -q 
+%setup -q
+%patch0 -p0
 
 %build
 libtoolize --copy --force
@@ -64,7 +66,7 @@ autoconf
 								
 %install
 rm -rf %{buildroot}
-%makeinstall
+%makeinstall_std
 
 %clean
 rm -rf %{buildroot}
