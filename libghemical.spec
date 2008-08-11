@@ -1,20 +1,21 @@
-%define	major		3
+%define	major		4
 %define	libname		%mklibname ghemical %major
 %define develname	%mklibname ghemical -d
 
 Name:		libghemical
 Summary:	Libraries for the Ghemical chemistry package
-Version:	2.96
+Version:	2.98
 Release:	%mkrel 1
 Source0:	http://www.uku.fi/~thassine/projects/download/%{name}-%{version}.tar.gz
 Patch0:		libghemical-2.96-gcc43.patch
+Patch1:		sasaeval.diff
 URL:		http://www.uku.fi/~thassine/ghemical/
 License:	GPL+
 Group:		Sciences/Chemistry
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	f2c flex
 BuildRequires:	libSC-devel
-BuildRequires:	mopac7-devel
+#BuildRequires:	mopac7-devel
 BuildRequires:	openbabel-devel
 BuildRequires:	blas-devel
 BuildRequires:	lapack-devel
@@ -53,14 +54,15 @@ Libraries and includes files for developing programs based on %{name}.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p1
 
 %build
 libtoolize --copy --force
 aclocal
 autoconf
-%configure2_5x	--enable-mopac7 \
+%configure2_5x	--disable-mopac7 \
 		--enable-mpqc \
-		--enable-openbabel 
+		--enable-openbabel
 
 %make
 								
