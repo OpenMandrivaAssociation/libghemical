@@ -64,7 +64,7 @@ autoconf
 		--enable-mpqc \
 		--enable-openbabel
 
-%make LIBS="-lmopac7 -lmpqc"
+%make LIBS="`sc-config --libs` -lmopac7 -lmpqc"
 							
 %install
 rm -rf %{buildroot}
