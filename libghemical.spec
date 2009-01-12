@@ -1,13 +1,13 @@
+Name:			libghemical
+Version:		2.98
+Release:		%mkrel 2
+
 %define	major		4
 %define	libname		%mklibname ghemical %major
 %define develname	%mklibname ghemical -d
 
-Name:		libghemical
 Summary:	Libraries for the Ghemical chemistry package
-Version:	2.98
-Release:	%mkrel 1
 Source0:	http://www.uku.fi/~thassine/projects/download/%{name}-%{version}.tar.gz
-Patch0:		libghemical-2.96-gcc43.patch
 Patch1:		sasaeval.diff
 URL:		http://www.uku.fi/~thassine/ghemical/
 License:	GPL+
@@ -15,12 +15,11 @@ Group:		Sciences/Chemistry
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	f2c flex
 BuildRequires:	libSC-devel
-#BuildRequires:	mopac7-devel
+BuildRequires:	mopac7-devel
 BuildRequires:	openbabel-devel
 BuildRequires:	blas-devel
 BuildRequires:	lapack-devel
 BuildRequires:	mesaglut-devel
-
 
 %description
 Library and data files for the ghemical computation chemistry package.
@@ -55,19 +54,18 @@ Libraries and includes files for developing programs based on %{name}.
 
 %prep
 %setup -q
-%patch0 -p0
 %patch1 -p1
 
 %build
 libtoolize --copy --force
 aclocal
 autoconf
-%configure2_5x	--disable-mopac7 \
+%configure2_5x	--enable-mopac7 \
 		--enable-mpqc \
 		--enable-openbabel
 
-%make
-								
+%make LIBS="-lmopac7 -lmpqc"
+							
 %install
 rm -rf %{buildroot}
 %makeinstall_std
@@ -77,8 +75,6 @@ rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
@@ -98,3 +94,4 @@ rm -rf %{buildroot}
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
+
