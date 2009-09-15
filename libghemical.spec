@@ -1,6 +1,6 @@
 Name:			libghemical
-Version:		2.98
-Release:		%mkrel 3
+Version:		2.99.1
+Release:		%mkrel 1
 
 %define	major		4
 %define	libname		%mklibname ghemical %major
@@ -8,7 +8,6 @@ Release:		%mkrel 3
 
 Summary:	Libraries for the Ghemical chemistry package
 Source0:	http://www.uku.fi/~thassine/projects/download/%{name}-%{version}.tar.gz
-Patch1:		sasaeval.diff
 URL:		http://www.uku.fi/~thassine/ghemical/
 License:	GPL+
 Group:		Sciences/Chemistry
@@ -54,7 +53,6 @@ Libraries and includes files for developing programs based on %{name}.
 
 %prep
 %setup -q
-%patch1 -p1
 
 %build
 libtoolize --copy --force
