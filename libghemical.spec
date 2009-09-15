@@ -54,9 +54,6 @@ Libraries and includes files for developing programs based on %{name}.
 %setup -q
 
 %build
-libtoolize --copy --force
-aclocal
-autoconf
 %configure2_5x	--enable-mopac7 \
 		--enable-mpqc \
 		--enable-openbabel
