@@ -9,7 +9,7 @@ Release:		%mkrel 1
 Summary:	Libraries for the Ghemical chemistry package
 Source0:	http://www.uku.fi/~thassine/projects/download/%{name}-%{version}.tar.gz
 URL:		http://www.uku.fi/~thassine/ghemical/
-License:	GPL+
+License:	GPLv2+
 Group:		Sciences/Chemistry
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	f2c flex
@@ -33,7 +33,7 @@ Data files for the ghemical library.
 %package -n	%{libname}
 Summary:	Dynamic libraries from %{name}
 Group:		System/Libraries
-Provides: 	%{name} = %{version}-%{release}
+Provides:	%{name} = %{version}-%{release}
 Requires:	%{name}-data = %{version}
 
 %description -n	%{libname}
@@ -42,11 +42,10 @@ Dynamic libraries from %{name}.
 %package -n	%{develname}
 Summary:	Header files and static libraries from %{name}
 Group:		Development/C
-Requires:	%{libname} = %{version}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{name} = %{version}
 Provides:	ghemical-devel = %{version}-%{release} 
-Obsoletes:	ghemical-devel
-Obsoletes:	%{mklibname ghemical 0 -d}
+Obsoletes:	ghemical-devel < %{version}-%{release}
+Obsoletes:	%{mklibname ghemical 0 -d} <= %{version}-%{release}
 
 %description -n	%{develname}
 Libraries and includes files for developing programs based on %{name}.
@@ -68,6 +67,7 @@ autoconf
 rm -rf %{buildroot}
 %makeinstall_std
 
+%find_lang %{name}
 %clean
 rm -rf %{buildroot}
 
@@ -76,7 +76,7 @@ rm -rf %{buildroot}
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
-%files data
+%files data -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog TODO
 %{_datadir}/%{name}
