@@ -19,6 +19,7 @@ BuildRequires:	openbabel-devel
 BuildRequires:	blas-devel
 BuildRequires:	lapack-devel
 BuildRequires:	mesaglut-devel
+BuildRequires:	intltool
 
 %description
 Library and data files for the ghemical computation chemistry package.
