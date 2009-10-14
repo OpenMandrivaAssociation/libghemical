@@ -1,6 +1,6 @@
 Name:			libghemical
 Version:		2.99.1
-Release:		%mkrel 1
+Release:		%mkrel 2
 
 %define	major		5
 %define	libname		%mklibname ghemical %major
@@ -59,7 +59,7 @@ Libraries and includes files for developing programs based on %{name}.
 		--enable-mpqc \
 		--enable-openbabel
 
-%make LIBS="`sc-config --libs` -lmopac7 -lmpqc"
+%make
 							
 %install
 rm -rf %{buildroot}
