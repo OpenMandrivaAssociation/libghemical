@@ -1,6 +1,6 @@
 Name:			libghemical
 Version:		2.99.1
-Release:		%mkrel 5
+Release:		%mkrel 6
 
 %define	major		5
 %define	libname		%mklibname ghemical %major
