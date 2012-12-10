@@ -1,0 +1,13 @@
+Index: libghemical-3.0.0/src/Makefile.am
+===================================================================
+--- libghemical-3.0.0.orig/src/Makefile.am
++++ libghemical-3.0.0/src/Makefile.am
+@@ -15,7 +15,7 @@ libghemical_la_LDFLAGS = -version-info 5
+ ##libghemical_la_LDFLAGS = -version-info 4:0:0		; version 2.98
+ ##libghemical_la_LDFLAGS = -version-info 3:0:0		; version 2.96
+ 
+-##liboglappth_la_LIBADD = -lfoo_extra
++libghemical_la_LIBADD = -lSCbasis -lSCclass -lSCgroup -lSCscf -lSCkeyval -lSCscmat -lSCmisc -lSCmolecule -lSCoptimize -lSCref -lSCrender -lSCscf -lSCwfn
+ 
+ libghemical_la_SOURCES = \
+ 	atom.cpp \
