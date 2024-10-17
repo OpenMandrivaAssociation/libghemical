@@ -11,7 +11,7 @@ Release:		2
 Summary:	Libraries for the Ghemical chemistry package
 Source0:	http://www.bioinformatics.org/ghemical/download/release%{releasedate}/%{name}-%{version}.tar.gz
 Patch0:		libghemical-3.0.0-rosa-linkage.patch
-URL:		http://www.bioinformatics.org/ghemical/ghemical/index.html
+URL:		https://www.bioinformatics.org/ghemical/ghemical/index.html
 License:	GPLv2+
 Group:		Sciences/Chemistry
 BuildRequires:	f2c flex
